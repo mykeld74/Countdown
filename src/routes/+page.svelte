@@ -92,6 +92,7 @@
 		&.zero {
 			color: oklch(38.5% 0.0874 21.23);
 			opacity: 0.5;
+			scale: 0.95;
 		}
 	}
 	.countdown-number {
@@ -124,7 +125,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-
 		margin-block-start: -12em;
 	}
 </style>
