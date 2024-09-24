@@ -9,6 +9,7 @@
 	let secondsLeft;
 
 	const endTime = new Date('2024-09-25T15:00:00').getTime();
+
 	const countdown = () => {
 		timeLeft = Math.floor((endTime - Date.now()) / 1000);
 		daysLeft = Math.floor(timeLeft / (24 * 60 * 60));
@@ -27,24 +28,35 @@
 
 <div class="countdown-container">
 	<div class="title-container"><h1 class="countdown-title">Countdown to Breckenridge</h1></div>
-	<div class="countdown">
-		<div class="countdown-item">
-			<p class="countdown-number">{daysLeft}</p>
-			<p class="countdown-text">Days</p>
+	{#if timeLeft > 0}
+		<div class="countdown">
+			<div class={daysLeft === 0 ? 'countdown-item zero' : 'countdown-item'}>
+				<p class="countdown-number">{daysLeft}</p>
+				<p class="countdown-text">Days</p>
+			</div>
+			<div class={daysLeft === 0 && hoursLeft === 0 ? 'countdown-item  zero' : 'countdown-item'}>
+				<p class="countdown-number">{hoursLeft}</p>
+				<p class="countdown-text">Hours</p>
+			</div>
+			<div
+				class={daysLeft === 0 && hoursLeft === 0 && minutesLeft === 0
+					? 'countdown-item zero'
+					: 'countdown-item '}
+			>
+				<p class="countdown-number">{minutesLeft}</p>
+				<p class="countdown-text">Minutes</p>
+			</div>
+			<div class="countdown-item">
+				<p class="countdown-number">{secondsLeft}</p>
+				<p class="countdown-text">Seconds</p>
+			</div>
 		</div>
-		<div class="countdown-item">
-			<p class="countdown-number">{hoursLeft}</p>
-			<p class="countdown-text">Hours</p>
+	{/if}
+	{#if timeLeft <= 0}
+		<div class="outtaHere">
+			<p class="countdown-number">I'm Outta Here!</p>
 		</div>
-		<div class="countdown-item">
-			<p class="countdown-number">{minutesLeft}</p>
-			<p class="countdown-text">Minutes</p>
-		</div>
-		<div class="countdown-item">
-			<p class="countdown-number">{secondsLeft}</p>
-			<p class="countdown-text">Seconds</p>
-		</div>
-	</div>
+	{/if}
 </div>
 
 <style>
@@ -77,6 +89,10 @@
 		padding: 1rem;
 		border-radius: 0.5rem;
 		box-shadow: var(--shadow-5);
+		&.zero {
+			color: oklch(38.5% 0.0874 21.23);
+			opacity: 0.5;
+		}
 	}
 	.countdown-number {
 		font-size: clamp(3rem, 10vw, 10rem);
@@ -102,5 +118,13 @@
 		background: var(--surface-1);
 		align-items: center;
 		justify-content: center;
+	}
+	.outtaHere {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		margin-block-start: -12em;
 	}
 </style>
