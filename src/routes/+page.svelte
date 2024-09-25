@@ -54,7 +54,7 @@
 	{/if}
 	{#if timeLeft <= 0}
 		<div class="outtaHere">
-			<p class="countdown-number">I'm Outta Here!</p>
+			<p class="countdown-number">We're Outta Here!</p>
 		</div>
 	{/if}
 </div>
