@@ -8,7 +8,7 @@
 	let minutesLeft;
 	let secondsLeft;
 
-	const endTime = new Date('2025-04-30T15:00:00').getTime();
+	const endTime = new Date('2025-10-28T15:00:00').getTime();
 
 	const countdown = () => {
 		timeLeft = Math.floor((endTime - Date.now()) / 1000);
@@ -27,7 +27,7 @@
 </script>
 
 <div class="countdown-container">
-	<div class="title-container"><h1 class="countdown-title">Countdown to Breckenridge</h1></div>
+	<div class="title-container"><h1 class="countdown-title">Countdown to Vermont</h1></div>
 	{#if timeLeft > 0}
 		<div class="countdown">
 			<div class={daysLeft === 0 ? 'countdown-item zero' : 'countdown-item'}>
