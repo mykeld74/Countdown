@@ -8,7 +8,7 @@
 	let minutesLeft;
 	let secondsLeft;
 
-	const endTime = new Date('2025-10-28T15:00:00').getTime();
+	const endTime = new Date('2025-10-28T07:00:00').getTime();
 
 	const countdown = () => {
 		timeLeft = Math.floor((endTime - Date.now()) / 1000);
